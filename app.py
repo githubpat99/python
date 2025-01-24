@@ -1,12 +1,12 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
+app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "https://silverline.it-pin.ch/"}})
+
 @app.route('/', methods=['GET'])
 def home():
     return jsonify({"message": "Welcome to the Flask API. Use /calculate-kpis to POST your data."})
-
-app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "https://silverline.it-pin.ch/"}})
 
 @app.route('/calculate-kpis', methods=['POST'])
 def calculate_kpis():
