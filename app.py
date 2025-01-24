@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  # Allow all origins for now (can be restricted later)
+CORS(app, resources={r"/*": {"origins": "https://silverline.it-pin.ch/"}})
 
 @app.route('/calculate-kpis', methods=['POST'])
 def calculate_kpis():
